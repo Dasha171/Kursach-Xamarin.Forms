@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COMPAPP.Views.Avtorization"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="BuildHub.png" HorizontalOptions="Center" HeightRequest="230" WidthRequest="330"/>
+                <Grid VerticalOptions="Center" Margin="40,0,40,0" RowSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Entry Placeholder="Username" x:Name="EntryUser" Grid.Row="0" TextColor="White" PlaceholderColor="#585959"/>
+                    <Entry Placeholder="Password" x:Name="EntryPassword" Grid.Row="1" IsPassword="True" TextColor="White" PlaceholderColor="#585959"/>
+                    <Button Text="Войти" Grid.Row="2" BackgroundColor="#8421cf" CornerRadius="20" FontSize="17"
+        FontAttributes="Bold" TextColor="White" Clicked="Button_Clicked_1" CharacterSpacing="1"
+        WidthRequest="150" HeightRequest="50" />
+                    <Button Text="Регистрация" Grid.Row="3" Clicked="Button_Clicked" CornerRadius="20" FontSize="17.2"
+        FontAttributes="Bold" BackgroundColor="Black" CharacterSpacing="0.5" BorderColor="#a128fc" BorderWidth="1"
+        WidthRequest="150" HeightRequest="50" />
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

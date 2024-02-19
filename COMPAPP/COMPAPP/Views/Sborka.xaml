@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="COMPAPP.Views.Sborka"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Ваша сборка"
+    BackgroundColor="Black">
+    <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="240" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Margin="0,30,0,0"
+                    FontSize="17"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding TotalPrice, StringFormat='Общая сумма: {0:0 } ₽'}"
+                    TextColor="#b09fc4" />
+                <Image Grid.Column="1" Source="osminog.jfif" />
+            </Grid>
+            <StackLayout Margin="30,10,0,0">
+                <Grid Margin="0,0,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Процессор"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalOptions="End"
+                        Text="{Binding SelectedItems.SelectedProduct.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProduct.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProduct.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProduct.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+                <Grid Margin="0,20,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Охлаждение"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelectedItems.SelectedProductItem.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProductItem.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductItem.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductItem.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductItemCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+                <Grid Margin="0,20,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Материнка"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelectedItems.SelectedProductMater.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProductMater.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductMater.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductMater.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductMaterCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+                <Grid Margin="0,20,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Оперативка"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelectedItems.SelectedProductOperative.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProductOperative.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductOperative.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductOperative.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductOperativeCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+                <Grid Margin="0,20,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Видеокарта"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelectedItems.SelectedProductVideo.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProductVideo.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductVideo.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductVideo.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductVideoCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+                <Grid Margin="0,20,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Диск"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelectedItems.SelectedProductDisk.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProductDisk.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductDisk.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductDisk.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductDiskCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+                <Grid Margin="0,20,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Ssd"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelectedItems.SelectedProductSsd.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProductSsd.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductSsd.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductSsd.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductSsdCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+                <Grid Margin="0,20,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Корпус"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelectedItems.SelectedProductKorpus.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProductKorpus.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductKorpus.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductKorpus.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductKorpusCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+                <Grid Margin="0,20,0,13">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Margin="40,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        Text="Питание"
+                        TextColor="White" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelectedItems.SelectedProductPitanie.Price, StringFormat='{0:0 } ₽'}"
+                        TextColor="#02d113" />
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Source="{Binding SelectedItems.SelectedProductPitanie.ImageURL}" />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductPitanie.ProductName}"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding SelectedItems.SelectedProductPitanie.Description}"
+                        TextColor="White" />
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="90,0,0,0"
+                        BackgroundColor="#6e00ad"
+                        Command="{Binding RemoveSelectedProductPitanieCommand}"
+                        CornerRadius="20"
+                        FontSize="12.5"
+                        Text="Удалить"
+                        TextColor="White" />
+                </Grid>
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

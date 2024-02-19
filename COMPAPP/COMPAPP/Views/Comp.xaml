@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="COMPAPP.Views.Comp"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:COMPAPP.ViewModels"
+    Title="BuildHub"
+    BackgroundColor="Black">
+    <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <!--  SelectionChanged="OnBuildSelected"                 SelectionMode="Single"  -->
+            <CollectionView x:Name="BuildsCollectionView" ItemsSource="{Binding Builds}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="20">
+                            <Image
+                                Margin="0,20,0,0"
+                                HeightRequest="150"
+                                Source="{Binding ImageURL}" />
+                            <Label
+                                Margin="10"
+                                CharacterSpacing="2"
+                                FontSize="15"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding ProductName}"
+                                TextColor="White" />
+                            <Label
+                                Margin="0,0,0,10"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Price}"
+                                TextColor="#02d113" />
+                            <Button
+                                Margin="60,0,60,0"
+                                BackgroundColor="#6e00ad"
+                                Clicked="OnViewClicked"
+                                CommandParameter="{Binding}"
+                                CornerRadius="20"
+                                FontSize="12.5"
+                                HeightRequest="50"
+                                Text="Посмотреть"
+                                TextColor="White" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

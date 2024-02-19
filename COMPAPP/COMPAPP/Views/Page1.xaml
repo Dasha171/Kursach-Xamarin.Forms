@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="COMPAPP.Views.Page1"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:COMPAPP.ViewModels"
+    xmlns:model="clr-namespace:COMPAPP.Models"
+    Title="BuildHub"
+    BackgroundColor="Black">
+    <ScrollView>
+        <StackLayout>
+            <Image Margin="50,-50,50,-45" Source="osminog.jfif" />
+            <Label
+                Margin="35,0,0,0"
+                CharacterSpacing="1.2"
+                FontAttributes="Bold"
+                FontSize="22"
+                Text="Рекомендации"
+                TextColor="White" />
+            <ScrollView Orientation="Horizontal">
+                <StackLayout Margin="20,20,20,40" Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="240" />
+                            <ColumnDefinition Width="240" />
+                            <ColumnDefinition Width="240" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="240" />
+                        </Grid.RowDefinitions>
+                        <Frame
+                            Grid.Column="0"
+                            Margin="10,0,10,0"
+                            CornerRadius="25">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="2,0" EndPoint="0,2">
+                                    <GradientStop Offset="0" Color="Black" />
+                                    <GradientStop Offset="1" Color="#360440" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="90" />
+                                        <RowDefinition Height="15" />
+                                        <RowDefinition Height="45" />
+                                        <RowDefinition Height="35" />
+                                    </Grid.RowDefinitions>
+                                    <Image
+                                        Grid.Row="0"
+                                        HeightRequest="20"
+                                        Source="https://edelws.ru/upload/iblock/a1c/a1ced5766a61ea1cda7e7dddfef30049.jpg"
+                                        WidthRequest="20" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Text="30.10.23"
+                                        TextColor="#515152" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Margin="0,2,0,0"
+                                        CharacterSpacing="2"
+                                        FontSize="14"
+                                        Text="Быстрая память от Gigabyte"
+                                        TextColor="White" />
+                                    <Button
+                                        Grid.Row="3"
+                                        Margin="10,0,10,0"
+                                        BackgroundColor="#6e00ad"
+                                        Clicked="CheckNov1"
+                                        CornerRadius="20"
+                                        FontSize="12.5"
+                                        Text="Перейти"
+                                        TextColor="White" />
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                        <Frame
+                            Grid.Column="1"
+                            Margin="10,0,10,0"
+                            CornerRadius="25">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="2,0" EndPoint="0,2">
+                                    <GradientStop Offset="0" Color="Black" />
+                                    <GradientStop Offset="1" Color="#360440" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="90" />
+                                        <RowDefinition Height="15" />
+                                        <RowDefinition Height="45" />
+                                        <RowDefinition Height="35" />
+                                    </Grid.RowDefinitions>
+                                    <Image
+                                        Grid.Row="0"
+                                        HeightRequest="20"
+                                        Source="https://edelws.ru/upload/iblock/9e5/9e555155289c82bbfdbd08181cf3830b.jpg"
+                                        WidthRequest="20" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Text="15.10.23"
+                                        TextColor="#515152" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Margin="0,2,0,0"
+                                        CharacterSpacing="2"
+                                        FontSize="14"
+                                        Text="Игровые видеокарты RTX 3070 TI"
+                                        TextColor="White" />
+                                    <Button
+                                        Grid.Row="3"
+                                        Margin="10,0,10,0"
+                                        BackgroundColor="#6e00ad"
+                                         Clicked="CheckNov1"
+                                        CornerRadius="20"
+                                        FontSize="12.5"
+                                        Text="Перейти"
+                                        TextColor="White" />
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                        <Frame
+                            Grid.Column="2"
+                            Margin="10,0,10,0"
+                            CornerRadius="25">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="2,0" EndPoint="0,2">
+                                    <GradientStop Offset="0" Color="Black" />
+                                    <GradientStop Offset="1" Color="#360440" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="90" />
+                                        <RowDefinition Height="15" />
+                                        <RowDefinition Height="45" />
+                                        <RowDefinition Height="35" />
+                                    </Grid.RowDefinitions>
+                                    <Image
+                                        Grid.Row="0"
+                                        HeightRequest="20"
+                                        Source="josboo.png"
+                                        WidthRequest="20" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Text="15.10.23"
+                                        TextColor="#515152" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Margin="0,2,0,0"
+                                        CharacterSpacing="2"
+                                        FontSize="14"
+                                        Text="Идеальный корпус "
+                                        TextColor="White" />
+                                    <Button
+                                        Grid.Row="3"
+                                        Margin="10,0,10,0"
+                                        BackgroundColor="#6e00ad"
+                                        CornerRadius="20"
+                                        FontSize="12.5"
+                                         Clicked="CheckNov1"
+                                        Text="Перейти"
+                                        TextColor="White" />
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout>
+                <Label
+                    Margin="35,20,0,10"
+                    CharacterSpacing="1"
+                    FontAttributes="Bold"
+                    FontSize="21"
+                    Text="Сборка компьютера под игры"
+                    TextColor="White" />
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Margin="14" Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="280" />
+                                <ColumnDefinition Width="280" />
+                                <ColumnDefinition Width="280" />
+                                <ColumnDefinition Width="280" />
+                                <ColumnDefinition Width="280" />
+                                <ColumnDefinition Width="280" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300" />
+                            </Grid.RowDefinitions>
+                            <Frame
+                                Grid.Column="0"
+                                Margin="10,0,10,0"
+                                BackgroundColor="#0b0b0d"
+                                CornerRadius="25">
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="160" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="20" />
+                                            <RowDefinition Height="35" />
+                                        </Grid.RowDefinitions>
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="-150"
+                                            Source="https://edelws.ru/upload/resize_cache/iblock/03b/320_424_1/03ba669303fd16fb4e6ce940476d833c.jpg" />
+                                        <Label
+                                            Grid.Row="1"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="25"
+                                            HorizontalOptions="Center"
+                                            Text="DOTA 2"
+                                            TextColor="White" />
+                                        <Label
+                                            Grid.Row="2"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HorizontalOptions="Center"
+                                            Text="Мин. комплектация от 35 000₽"
+                                            TextColor="#47ff3d" />
+                                        <Button
+                                            Grid.Row="3"
+                                            BackgroundColor="#6e00ad"
+                                            Clicked="GameClick1"
+                                            CornerRadius="20"
+                                            FontSize="12.5"
+                                            Text="Характеристика"
+                                            TextColor="White" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Column="1"
+                                Margin="10,0,10,0"
+                                BackgroundColor="#0b0b0d"
+                                CornerRadius="25">
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="160" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="20" />
+                                            <RowDefinition Height="35" />
+                                        </Grid.RowDefinitions>
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="-155"
+                                            Source="https://edelws.ru/upload/resize_cache/iblock/0b0/320_424_1/0b0bda7ea5b1d28ee8299785b1a8072a.jpg" />
+                                        <Label
+                                            Grid.Row="1"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="21"
+                                            HorizontalOptions="Center"
+                                            Text="CS:GO"
+                                            TextColor="White" />
+                                        <Label
+                                            Grid.Row="2"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HorizontalOptions="Center"
+                                            Text="Мин. комплектация от 50 000₽"
+                                            TextColor="#47ff3d" />
+                                        <Button
+                                            Grid.Row="3"
+                                            BackgroundColor="#6e00ad"
+                                            Clicked="GameClick2"
+                                            CornerRadius="20"
+                                            FontSize="12.5"
+                                            Text="Характеристика"
+                                            TextColor="White" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Column="2"
+                                Margin="10,0,10,0"
+                                BackgroundColor="#0b0b0d"
+                                CornerRadius="25">
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="160" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="20" />
+                                            <RowDefinition Height="35" />
+                                        </Grid.RowDefinitions>
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="-145"
+                                            Source="https://edelws.ru/upload/resize_cache/iblock/d3f/320_424_1/d3f90ab0ed257925e9befcb2081f411e.jpg" />
+                                        <Label
+                                            Grid.Row="1"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="21"
+                                            HorizontalOptions="Center"
+                                            Text="Minecraft"
+                                            TextColor="White" />
+                                        <Label
+                                            Grid.Row="2"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HorizontalOptions="Center"
+                                            Text="Мин. комплектация от 20 000₽"
+                                            TextColor="#47ff3d" />
+                                        <Button
+                                            Grid.Row="3"
+                                            BackgroundColor="#6e00ad"
+                                            Clicked="GameClick3"
+                                            CornerRadius="20"
+                                            FontSize="12.5"
+                                            Text="Характеристика"
+                                            TextColor="White" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Column="3"
+                                Margin="10,0,10,0"
+                                BackgroundColor="#0b0b0d"
+                                CornerRadius="25">
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="160" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="20" />
+                                            <RowDefinition Height="35" />
+                                        </Grid.RowDefinitions>
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="-150"
+                                            Source="https://edelws.ru/upload/resize_cache/iblock/69c/320_424_1/69cb938f7945d921ac8f414b06382a06.jpg" />
+                                        <Label
+                                            Grid.Row="1"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="21"
+                                            HorizontalOptions="Center"
+                                            Text="World of Tanks"
+                                            TextColor="White" />
+                                        <Label
+                                            Grid.Row="2"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HorizontalOptions="Center"
+                                            Text="Мин. комплектация от 40 000₽"
+                                            TextColor="#47ff3d" />
+                                        <Button
+                                            Grid.Row="3"
+                                            BackgroundColor="#6e00ad"
+                                            Clicked="GameClick4"
+                                            CornerRadius="20"
+                                            FontSize="12.5"
+                                            Text="Характеристика"
+                                            TextColor="White" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Column="4"
+                                Margin="10,0,10,0"
+                                BackgroundColor="#0b0b0d"
+                                CornerRadius="25">
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="160" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="20" />
+                                            <RowDefinition Height="35" />
+                                        </Grid.RowDefinitions>
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="-150"
+                                            Source="https://edelws.ru/upload/iblock/1df/1dfaec53810f7e27f3565fd446a0c374.jpg" />
+                                        <Label
+                                            Grid.Row="1"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="21"
+                                            HorizontalOptions="Center"
+                                            Text="RDR 2"
+                                            TextColor="White" />
+                                        <Label
+                                            Grid.Row="2"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HorizontalOptions="Center"
+                                            Text="Мин. комплектация от 40 000₽"
+                                            TextColor="#47ff3d" />
+                                        <Button
+                                            Grid.Row="3"
+                                            BackgroundColor="#6e00ad"
+                                            Clicked="GameClick5"
+                                            CornerRadius="20"
+                                            FontSize="12.5"
+                                            Text="Характеристика"
+                                            TextColor="White" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame
+                                Grid.Column="5"
+                                Margin="10,0,10,0"
+                                BackgroundColor="#0b0b0d"
+                                CornerRadius="25">
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="160" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="20" />
+                                            <RowDefinition Height="35" />
+                                        </Grid.RowDefinitions>
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="-150"
+                                            Source="cyber.jpg" />
+                                        <Label
+                                            Grid.Row="1"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="21"
+                                            HorizontalOptions="Center"
+                                            Text="Cyberpank 2077"
+                                            TextColor="White" />
+                                        <Label
+                                            Grid.Row="2"
+                                            CharacterSpacing="2"
+                                            FontAttributes="Bold"
+                                            FontSize="11"
+                                            HorizontalOptions="Center"
+                                            Text="Мин. комплектация от 90 000₽"
+                                            TextColor="#47ff3d" />
+                                        <Button
+                                            Grid.Row="3"
+                                            BackgroundColor="#6e00ad"
+                                            Clicked="GameClick6"
+                                            CornerRadius="20"
+                                            FontSize="12.5"
+                                            Text="Характеристика"
+                                            TextColor="White" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

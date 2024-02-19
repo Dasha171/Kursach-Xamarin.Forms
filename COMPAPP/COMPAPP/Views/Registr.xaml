@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COMPAPP.Views.Registr"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Регистрация"
+                   TextColor="White"
+                   HorizontalOptions="Center" FontSize="23" FontAttributes="Bold"
+                   />
+            <StackLayout Margin="25">
+                <Entry Placeholder="Имя пользователя" x:Name="UsernameEntry"  TextColor="White" PlaceholderColor="#585959"/>
+                <Entry Placeholder="Пароль" IsPassword="True" x:Name="PasswordEntry" TextColor="White" PlaceholderColor="#585959"/>
+                <Button Clicked="LoginButton_Clicked"  Text="Зарегистрироваться" Grid.Row="3" Margin="20" CornerRadius="20" 
+                        FontSize="16" FontAttributes="Bold" CharacterSpacing="0.5"  BackgroundColor="#8421cf" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

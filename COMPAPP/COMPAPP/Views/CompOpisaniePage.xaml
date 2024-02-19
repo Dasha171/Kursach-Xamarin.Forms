@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="COMPAPP.Views.CompOpisaniePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Background="Black">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image
+                Margin="0,20,0,0"
+                HeightRequest="150"
+                Source="{Binding ImageURL}" />
+            <Label
+                Margin="0,20,20,0"
+                FontSize="Title"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding ProductName}"
+                TextColor="#b09fc4" />
+
+            <Label
+                Margin="20"
+                FontAttributes="Bold"
+                FontSize="17"
+                HorizontalOptions="Center"
+                Text="{Binding Description}"
+                TextColor="White" />
+            <Label
+                Margin="0,0,40,0"
+                FontAttributes="Bold"
+                FontSize="17"
+                HorizontalTextAlignment="End"
+                Text="{Binding Price}"
+                TextColor="#02d113" />
+            <!--  Добавьте другие элементы для отображения других свойств сборки  -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

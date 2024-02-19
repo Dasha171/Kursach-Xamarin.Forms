@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="COMPAPP.Views.Game"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:COMPAPP.ViewModels"
+    Title="BuildHub"
+    BackgroundColor="Black">
+
+    <ScrollView VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Frame
+                Margin="40,20,40,30"
+                Padding="0"
+                BackgroundColor="Black"
+                BorderColor="White"
+                CornerRadius="30"
+                HasShadow="False">
+                <SearchBar
+                    x:Name="Search1"
+                    CancelButtonColor="#6e00ad"
+                    Placeholder="Поиск"
+                    PlaceholderColor="#7a7a7a"
+                    TextChanged="SearchButton"
+                    TextColor="White" />
+            </Frame>
+            <!-- <StackLayout Margin="10,-550,10,0">-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="280" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="ПРОЦЕССОРЫ"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll" ItemsSource="{Binding Ilist}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image Grid.Row="0" Source="{Binding ImageURL}" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="ОХЛАЖДЕНИЕ"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll2" ItemsSource="{Binding Ilist2}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        Source="{Binding ImageURL}"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="МАТЕРИНСКАЯ ПЛАТА"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll3" ItemsSource="{Binding Ilist3}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        Source="{Binding ImageURL}"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="ОПЕРАТИВНАЯ ПАМЯТЬ"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll4" ItemsSource="{Binding Ilist4}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        Source="{Binding ImageURL}"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="4" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="ВИДЕОКАРТА"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll5" ItemsSource="{Binding Ilist5}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        Source="{Binding ImageURL}"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="5" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="ЖЁСТКИЙ ДИСК"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll6" ItemsSource="{Binding Ilist6}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        Source="{Binding ImageURL}"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="6" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="SSD"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll7" ItemsSource="{Binding Ilist7}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        Source="{Binding ImageURL}"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="7" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="КОРПУС"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll8" ItemsSource="{Binding Ilist8}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        Source="{Binding ImageURL}"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="8" Margin="10,0,10,0">
+                    <Label
+                        Margin="0,0,0,10"
+                        CharacterSpacing="1.6"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="БЛОК ПИТАНИЯ"
+                        TextColor="White" />
+                    <CollectionView x:Name="Colll9" ItemsSource="{Binding Ilist9}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Horizontal" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="190" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="220" />
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            Margin="10,0,10,0"
+                                            BackgroundColor="#0b0b0d"
+                                            CornerRadius="25">
+                                            <Frame.Background>
+                                                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="#95360440" />
+                                                </LinearGradientBrush>
+                                            </Frame.Background>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="60" />
+                                                        <RowDefinition Height="55" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="35" />
+                                                    </Grid.RowDefinitions>
+                                                    <Image
+                                                        Grid.Row="0"
+                                                        HeightRequest="20"
+                                                        Source="{Binding ImageURL}"
+                                                        WidthRequest="20" />
+                                                    <Label
+                                                        Grid.Row="1"
+                                                        CharacterSpacing="2"
+                                                        FontSize="13"
+                                                        Text="{Binding ProductName}"
+                                                        TextColor="White" />
+                                                    <Label
+                                                        Grid.Row="2"
+                                                        Margin="10,0,0,0"
+                                                        HorizontalTextAlignment="Center"
+                                                        Text="{Binding Price, StringFormat='{0:0 } ₽'}"
+                                                        TextColor="#02d113" />
+                                                    <Button
+                                                        Grid.Row="3"
+                                                        BackgroundColor="#6e00ad"
+                                                        Clicked="OnSelectButtonClicked"
+                                                        CommandParameter="{Binding}"
+                                                        CornerRadius="20"
+                                                        FontSize="12.5"
+                                                        Text="Выбрать"
+                                                        TextColor="White" />
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
